@@ -10,6 +10,11 @@
       "StackName": "amplify-fluentmind-dev-213620",
       "StackId": "arn:aws:cloudformation:us-east-1:964699797396:stack/amplify-fluentmind-dev-213620/facb1fc0-30d4-11ee-ba5d-0e6d5c615f0d",
       "AmplifyAppId": "dmycsi6zuxpjk"
+    },
+    "categories": {
+      "auth": {
+        "fluentmindb06c532e": {}
+      }
     }
   }
 }
