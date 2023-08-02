@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fluentmind-dev-213620-authRole",
+      "UnauthRoleArn": "arn:aws:iam::964699797396:role/amplify-fluentmind-dev-213620-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::964699797396:role/amplify-fluentmind-dev-213620-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fluentmind-dev-213620-deployment",
+      "UnauthRoleName": "amplify-fluentmind-dev-213620-unauthRole",
+      "StackName": "amplify-fluentmind-dev-213620",
+      "StackId": "arn:aws:cloudformation:us-east-1:964699797396:stack/amplify-fluentmind-dev-213620/facb1fc0-30d4-11ee-ba5d-0e6d5c615f0d",
+      "AmplifyAppId": "dmycsi6zuxpjk"
+    }
+  }
+}
