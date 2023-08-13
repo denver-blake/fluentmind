@@ -22,19 +22,21 @@ type Sentence @model @auth(rules: [{allow: private, operations: [read]},{ allow:
 
 }
 
-type UserWord @model @auth(rules: [{allow: owner}]) {
+type UserWord @model @auth(rules: [{allow: owner},{allow: public}]) {
   id: String! @primaryKey
   word: Word @hasOne(fields: ["wordText","wordTranslation"])
   wordText: String
   wordTranslation: String
   randId: ID
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
 
-type UserSentence @model @auth(rules: [{allow:owner}]) {
+type UserSentence @model @auth(rules: [{allow:owner},{allow: public}]) {
   id: String! @primaryKey
   sentence: Sentence @hasOne(fields:["sentenceText","sentenceTranslation"])
   sentenceText: String
   sentenceTranslation: String
+  owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
 
 type Mutation {

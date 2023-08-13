@@ -4,14 +4,17 @@
     "apiName": "fluentmind",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "API_KEY",
-      "expirationTime": 7
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authfluentmind96ced389"
     },
     "additionalAuthTypes": [
       {
-        "mode": "AMAZON_COGNITO_USER_POOLS",
-        "cognitoUserPoolId": "authfluentmind96ced389"
+        "mode": "API_KEY",
+        "expirationTime": 30,
+        "apiKeyExpirationDate": "2023-09-12T14:56:56.644Z",
+        "keyDescription": ""
       }
-    ]
+    ],
+    "conflictResolution": {}
   }
 }

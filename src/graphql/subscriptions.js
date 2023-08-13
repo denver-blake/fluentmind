@@ -115,9 +115,9 @@ export const onCreateUserWord = /* GraphQL */ `
       wordText
       wordTranslation
       randId
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -140,9 +140,9 @@ export const onUpdateUserWord = /* GraphQL */ `
       wordText
       wordTranslation
       randId
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -165,9 +165,9 @@ export const onDeleteUserWord = /* GraphQL */ `
       wordText
       wordTranslation
       randId
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -189,9 +189,9 @@ export const onCreateUserSentence = /* GraphQL */ `
       }
       sentenceText
       sentenceTranslation
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -213,9 +213,9 @@ export const onUpdateUserSentence = /* GraphQL */ `
       }
       sentenceText
       sentenceTranslation
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -237,9 +237,9 @@ export const onDeleteUserSentence = /* GraphQL */ `
       }
       sentenceText
       sentenceTranslation
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }

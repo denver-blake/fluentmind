@@ -16,7 +16,8 @@ function HomeScreen() {
     }
 
     return <View>
-      <Button title="Practice" onPress={() => navigation.navigate('PracticeStack')}/>
+      <Button title="Practice Old Sentences" onPress={() => navigation.navigate('PracticeStack')}/>
+      <Button title="Practice New Sentences" onPress={() => navigation.navigate('PracticeStack')}/>
       <Button title="Sign out" onPress={ () => signOut()} />
       </View>
   }

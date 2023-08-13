@@ -108,9 +108,9 @@ export const getUserWord = /* GraphQL */ `
       wordText
       wordTranslation
       randId
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -135,9 +135,9 @@ export const listUserWords = /* GraphQL */ `
         wordText
         wordTranslation
         randId
+        owner
         createdAt
         updatedAt
-        owner
         __typename
       }
       nextToken
@@ -159,9 +159,9 @@ export const getUserSentence = /* GraphQL */ `
       }
       sentenceText
       sentenceTranslation
+      owner
       createdAt
       updatedAt
-      owner
       __typename
     }
   }
@@ -185,9 +185,9 @@ export const listUserSentences = /* GraphQL */ `
         id
         sentenceText
         sentenceTranslation
+        owner
         createdAt
         updatedAt
-        owner
         __typename
       }
       nextToken

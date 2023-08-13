@@ -15,9 +15,58 @@ export const generateSentence = /* GraphQL */ `
       }
       sentenceText
       sentenceTranslation
+      owner
       createdAt
       updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteUserWord = /* GraphQL */ `
+  mutation DeleteUserWord(
+    $input: DeleteUserWordInput!
+    $condition: ModelUserWordConditionInput
+  ) {
+    deleteUserWord(input: $input, condition: $condition) {
+      id
+      word {
+        text
+        translation
+        language
+        createdAt
+        updatedAt
+        __typename
+      }
+      wordText
+      wordTranslation
+      randId
       owner
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteUserSentence = /* GraphQL */ `
+  mutation DeleteUserSentence(
+    $input: DeleteUserSentenceInput!
+    $condition: ModelUserSentenceConditionInput
+  ) {
+    deleteUserSentence(input: $input, condition: $condition) {
+      id
+      sentence {
+        text
+        translation
+        language
+        createdAt
+        updatedAt
+        __typename
+      }
+      sentenceText
+      sentenceTranslation
+      owner
+      createdAt
+      updatedAt
       __typename
     }
   }
@@ -136,6 +185,104 @@ export const deleteSentence = /* GraphQL */ `
     }
   }
 `;
+export const createUserWord = /* GraphQL */ `
+  mutation CreateUserWord(
+    $input: CreateUserWordInput!
+    $condition: ModelUserWordConditionInput
+  ) {
+    createUserWord(input: $input, condition: $condition) {
+      id
+      word {
+        text
+        translation
+        language
+        createdAt
+        updatedAt
+        __typename
+      }
+      wordText
+      wordTranslation
+      randId
+      owner
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateUserWord = /* GraphQL */ `
+  mutation UpdateUserWord(
+    $input: UpdateUserWordInput!
+    $condition: ModelUserWordConditionInput
+  ) {
+    updateUserWord(input: $input, condition: $condition) {
+      id
+      word {
+        text
+        translation
+        language
+        createdAt
+        updatedAt
+        __typename
+      }
+      wordText
+      wordTranslation
+      randId
+      owner
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const createUserSentence = /* GraphQL */ `
+  mutation CreateUserSentence(
+    $input: CreateUserSentenceInput!
+    $condition: ModelUserSentenceConditionInput
+  ) {
+    createUserSentence(input: $input, condition: $condition) {
+      id
+      sentence {
+        text
+        translation
+        language
+        createdAt
+        updatedAt
+        __typename
+      }
+      sentenceText
+      sentenceTranslation
+      owner
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateUserSentence = /* GraphQL */ `
+  mutation UpdateUserSentence(
+    $input: UpdateUserSentenceInput!
+    $condition: ModelUserSentenceConditionInput
+  ) {
+    updateUserSentence(input: $input, condition: $condition) {
+      id
+      sentence {
+        text
+        translation
+        language
+        createdAt
+        updatedAt
+        __typename
+      }
+      sentenceText
+      sentenceTranslation
+      owner
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
 export const createSentenceWords = /* GraphQL */ `
   mutation CreateSentenceWords(
     $input: CreateSentenceWordsInput!
@@ -231,153 +378,6 @@ export const deleteSentenceWords = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      __typename
-    }
-  }
-`;
-export const createUserWord = /* GraphQL */ `
-  mutation CreateUserWord(
-    $input: CreateUserWordInput!
-    $condition: ModelUserWordConditionInput
-  ) {
-    createUserWord(input: $input, condition: $condition) {
-      id
-      word {
-        text
-        translation
-        language
-        createdAt
-        updatedAt
-        __typename
-      }
-      wordText
-      wordTranslation
-      randId
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
-  }
-`;
-export const updateUserWord = /* GraphQL */ `
-  mutation UpdateUserWord(
-    $input: UpdateUserWordInput!
-    $condition: ModelUserWordConditionInput
-  ) {
-    updateUserWord(input: $input, condition: $condition) {
-      id
-      word {
-        text
-        translation
-        language
-        createdAt
-        updatedAt
-        __typename
-      }
-      wordText
-      wordTranslation
-      randId
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
-  }
-`;
-export const deleteUserWord = /* GraphQL */ `
-  mutation DeleteUserWord(
-    $input: DeleteUserWordInput!
-    $condition: ModelUserWordConditionInput
-  ) {
-    deleteUserWord(input: $input, condition: $condition) {
-      id
-      word {
-        text
-        translation
-        language
-        createdAt
-        updatedAt
-        __typename
-      }
-      wordText
-      wordTranslation
-      randId
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
-  }
-`;
-export const createUserSentence = /* GraphQL */ `
-  mutation CreateUserSentence(
-    $input: CreateUserSentenceInput!
-    $condition: ModelUserSentenceConditionInput
-  ) {
-    createUserSentence(input: $input, condition: $condition) {
-      id
-      sentence {
-        text
-        translation
-        language
-        createdAt
-        updatedAt
-        __typename
-      }
-      sentenceText
-      sentenceTranslation
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
-  }
-`;
-export const updateUserSentence = /* GraphQL */ `
-  mutation UpdateUserSentence(
-    $input: UpdateUserSentenceInput!
-    $condition: ModelUserSentenceConditionInput
-  ) {
-    updateUserSentence(input: $input, condition: $condition) {
-      id
-      sentence {
-        text
-        translation
-        language
-        createdAt
-        updatedAt
-        __typename
-      }
-      sentenceText
-      sentenceTranslation
-      createdAt
-      updatedAt
-      owner
-      __typename
-    }
-  }
-`;
-export const deleteUserSentence = /* GraphQL */ `
-  mutation DeleteUserSentence(
-    $input: DeleteUserSentenceInput!
-    $condition: ModelUserSentenceConditionInput
-  ) {
-    deleteUserSentence(input: $input, condition: $condition) {
-      id
-      sentence {
-        text
-        translation
-        language
-        createdAt
-        updatedAt
-        __typename
-      }
-      sentenceText
-      sentenceTranslation
-      createdAt
-      updatedAt
-      owner
       __typename
     }
   }
