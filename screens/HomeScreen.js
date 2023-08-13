@@ -1,9 +1,24 @@
 import React from 'react';
 import {View,Button,Text} from 'react-native';
-import {useNavigation, NavigationProp } from '@react-navigation/native'
+import {useNavigation } from '@react-navigation/native'
+import {Auth} from 'aws-amplify';
 function HomeScreen() {
+
+
     const navigation = useNavigation();
-    return <View><Button title="Practice" onPress={() => navigation.navigate('PracticeStack')}/></View>
+
+    async function signOut() {
+      try {
+        await Auth.signOut();
+      } catch (error) {
+        console.log('error signing out: ', error);
+      }
+    }
+
+    return <View>
+      <Button title="Practice" onPress={() => navigation.navigate('PracticeStack')}/>
+      <Button title="Sign out" onPress={ () => signOut()} />
+      </View>
   }
 
 

@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "fluentmind",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authfluentmind96ced389",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

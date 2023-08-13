@@ -1,0 +1,42 @@
+
+
+enum Language {
+  ENGLISH
+  KOREAN
+}
+
+type Word @model @auth(rules: [{allow: private, operations: [read]},{ allow: public }]) {
+  
+  text: String! @primaryKey(sortKeyFields: ["translation"])
+  translation: String!
+  language: Language!
+  sentences: [Sentence] @manyToMany(relationName: "SentenceWords",)
+}
+
+
+type Sentence @model @auth(rules: [{allow: private, operations: [read]},{ allow: public }]) {
+  text: String! @primaryKey(sortKeyFields: ["translation"])
+  translation: String!
+  language: Language!
+  words: [Word] @manyToMany(relationName: "SentenceWords")
+
+}
+
+type UserWord @model @auth(rules: [{allow: owner}]) {
+  id: String! @primaryKey
+  word: Word @hasOne(fields: ["wordText","wordTranslation"])
+  wordText: String
+  wordTranslation: String
+  randId: ID
+}
+
+type UserSentence @model @auth(rules: [{allow:owner}]) {
+  id: String! @primaryKey
+  sentence: Sentence @hasOne(fields:["sentenceText","sentenceTranslation"])
+  sentenceText: String
+  sentenceTranslation: String
+}
+
+type Mutation {
+  generateSentence(language: Language) : [UserSentence]
+}

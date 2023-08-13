@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import VocabScreen from './screens/VocabScreen';
 import PracticeStack from './screens/PracticeStack';
+import AddVocabScreen from './screens/AddVocabScreen';
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
 
@@ -37,6 +38,9 @@ const App = () => {
         <Stack.Navigator>
             <Stack.Screen name="MainTab" component={MainTabs}/>
             <Stack.Screen name='PracticeStack' component={PracticeStack}/>
+            <Stack.Group screenOptions={{ presentation: 'modal' }}>
+              <Stack.Screen name="AddVocab" component={AddVocabScreen} />
+            </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
