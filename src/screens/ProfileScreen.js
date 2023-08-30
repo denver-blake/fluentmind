@@ -1,10 +1,8 @@
 import React from 'react';
-import {View,Button,Text} from 'react-native';
+import {View} from 'react-native';
 
+function ProfileScreen() {
+	return <View></View>;
+}
 
-function ProfileScreen({navigation }) {
-    return <View><Text>asdasd</Text></View>
-  }
-
-
-  export default ProfileScreen;
+export default ProfileScreen;

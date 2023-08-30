@@ -14,7 +14,7 @@ export const schema = {
                     "name": "translation",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "language": {
@@ -70,8 +70,7 @@ export const schema = {
                     "type": "key",
                     "properties": {
                         "fields": [
-                            "text",
-                            "translation"
+                            "text"
                         ]
                     }
                 },
@@ -113,7 +112,7 @@ export const schema = {
                     "name": "translation",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "language": {
@@ -124,6 +123,22 @@ export const schema = {
                     },
                     "isRequired": true,
                     "attributes": []
+                },
+                "phrases": {
+                    "name": "phrases",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "meanings": {
+                    "name": "meanings",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "words": {
                     "name": "words",
@@ -169,8 +184,7 @@ export const schema = {
                     "type": "key",
                     "properties": {
                         "fields": [
-                            "text",
-                            "translation"
+                            "text"
                         ]
                     }
                 },
@@ -219,24 +233,15 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_ONE",
                         "associatedWith": [
-                            "text",
-                            "translation"
+                            "text"
                         ],
                         "targetNames": [
-                            "wordText",
-                            "wordTranslation"
+                            "wordText"
                         ]
                     }
                 },
                 "wordText": {
                     "name": "wordText",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "wordTranslation": {
-                    "name": "wordTranslation",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -339,24 +344,15 @@ export const schema = {
                     "association": {
                         "connectionType": "HAS_ONE",
                         "associatedWith": [
-                            "text",
-                            "translation"
+                            "text"
                         ],
                         "targetNames": [
-                            "sentenceText",
-                            "sentenceTranslation"
+                            "sentenceText"
                         ]
                     }
                 },
                 "sentenceText": {
                     "name": "sentenceText",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "sentenceTranslation": {
-                    "name": "sentenceTranslation",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -448,24 +444,10 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "wordtranslation": {
-                    "name": "wordtranslation",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "sentenceText": {
                     "name": "sentenceText",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "sentencetranslation": {
-                    "name": "sentencetranslation",
-                    "isArray": false,
-                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -480,8 +462,7 @@ export const schema = {
                     "association": {
                         "connectionType": "BELONGS_TO",
                         "targetNames": [
-                            "wordText",
-                            "wordtranslation"
+                            "wordText"
                         ]
                     }
                 },
@@ -496,8 +477,7 @@ export const schema = {
                     "association": {
                         "connectionType": "BELONGS_TO",
                         "targetNames": [
-                            "sentenceText",
-                            "sentencetranslation"
+                            "sentenceText"
                         ]
                     }
                 },
@@ -530,8 +510,7 @@ export const schema = {
                     "properties": {
                         "name": "byWord",
                         "fields": [
-                            "wordText",
-                            "wordtranslation"
+                            "wordText"
                         ]
                     }
                 },
@@ -540,8 +519,7 @@ export const schema = {
                     "properties": {
                         "name": "bySentence",
                         "fields": [
-                            "sentenceText",
-                            "sentencetranslation"
+                            "sentenceText"
                         ]
                     }
                 }
@@ -559,5 +537,5 @@ export const schema = {
     },
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "7a28e0e7c1a173a27fd9b78f3f3b9bfd"
+    "version": "38b0390e9aa198ef3b35c537cffa20e3"
 };

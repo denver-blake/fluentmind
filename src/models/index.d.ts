@@ -1,4 +1,4 @@
-import { ModelInit, MutableModel, __modelMeta__, CompositeIdentifier, OptionallyManagedIdentifier, ManagedIdentifier } from "@aws-amplify/datastore";
+import { ModelInit, MutableModel, __modelMeta__, CustomIdentifier, OptionallyManagedIdentifier, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled, AsyncCollection, AsyncItem } from "@aws-amplify/datastore";
 
@@ -11,11 +11,11 @@ export enum Language {
 
 type EagerWord = {
   readonly [__modelMeta__]: {
-    identifier: CompositeIdentifier<Word, ['text', 'translation']>;
+    identifier: CustomIdentifier<Word, 'text'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly text: string;
-  readonly translation: string;
+  readonly translation?: string | null;
   readonly language: Language | keyof typeof Language;
   readonly sentences?: (SentenceWords | null)[] | null;
   readonly createdAt?: string | null;
@@ -24,11 +24,11 @@ type EagerWord = {
 
 type LazyWord = {
   readonly [__modelMeta__]: {
-    identifier: CompositeIdentifier<Word, ['text', 'translation']>;
+    identifier: CustomIdentifier<Word, 'text'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly text: string;
-  readonly translation: string;
+  readonly translation?: string | null;
   readonly language: Language | keyof typeof Language;
   readonly sentences: AsyncCollection<SentenceWords>;
   readonly createdAt?: string | null;
@@ -43,12 +43,14 @@ export declare const Word: (new (init: ModelInit<Word>) => Word) & {
 
 type EagerSentence = {
   readonly [__modelMeta__]: {
-    identifier: CompositeIdentifier<Sentence, ['text', 'translation']>;
+    identifier: CustomIdentifier<Sentence, 'text'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly text: string;
-  readonly translation: string;
+  readonly translation?: string | null;
   readonly language: Language | keyof typeof Language;
+  readonly phrases?: (string | null)[] | null;
+  readonly meanings?: (string | null)[] | null;
   readonly words?: (SentenceWords | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -56,12 +58,14 @@ type EagerSentence = {
 
 type LazySentence = {
   readonly [__modelMeta__]: {
-    identifier: CompositeIdentifier<Sentence, ['text', 'translation']>;
+    identifier: CustomIdentifier<Sentence, 'text'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly text: string;
-  readonly translation: string;
+  readonly translation?: string | null;
   readonly language: Language | keyof typeof Language;
+  readonly phrases?: (string | null)[] | null;
+  readonly meanings?: (string | null)[] | null;
   readonly words: AsyncCollection<SentenceWords>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -81,7 +85,6 @@ type EagerUserWord = {
   readonly id: string;
   readonly word?: Word | null;
   readonly wordText?: string | null;
-  readonly wordTranslation?: string | null;
   readonly randId?: string | null;
   readonly owner?: string | null;
   readonly createdAt?: string | null;
@@ -96,7 +99,6 @@ type LazyUserWord = {
   readonly id: string;
   readonly word: AsyncItem<Word | undefined>;
   readonly wordText?: string | null;
-  readonly wordTranslation?: string | null;
   readonly randId?: string | null;
   readonly owner?: string | null;
   readonly createdAt?: string | null;
@@ -117,7 +119,6 @@ type EagerUserSentence = {
   readonly id: string;
   readonly sentence?: Sentence | null;
   readonly sentenceText?: string | null;
-  readonly sentenceTranslation?: string | null;
   readonly owner?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -131,7 +132,6 @@ type LazyUserSentence = {
   readonly id: string;
   readonly sentence: AsyncItem<Sentence | undefined>;
   readonly sentenceText?: string | null;
-  readonly sentenceTranslation?: string | null;
   readonly owner?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -150,9 +150,7 @@ type EagerSentenceWords = {
   };
   readonly id: string;
   readonly wordText?: string | null;
-  readonly wordtranslation?: string | null;
   readonly sentenceText?: string | null;
-  readonly sentencetranslation?: string | null;
   readonly word: Word;
   readonly sentence: Sentence;
   readonly createdAt?: string | null;
@@ -166,9 +164,7 @@ type LazySentenceWords = {
   };
   readonly id: string;
   readonly wordText?: string | null;
-  readonly wordtranslation?: string | null;
   readonly sentenceText?: string | null;
-  readonly sentencetranslation?: string | null;
   readonly word: AsyncItem<Word>;
   readonly sentence: AsyncItem<Sentence>;
   readonly createdAt?: string | null;

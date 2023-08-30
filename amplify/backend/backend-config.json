@@ -7,7 +7,7 @@
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "fluentmind96ced389"
+          "resourceName": "fluentmind11855d94"
         }
       ],
       "output": {
@@ -15,7 +15,7 @@
           "additionalAuthenticationProviders": [
             {
               "apiKeyConfig": {
-                "apiKeyExpirationDate": "2023-09-12T14:56:56.644Z",
+                "apiKeyExpirationDate": "2023-09-20T21:24:14.540Z",
                 "apiKeyExpirationDays": 30,
                 "description": ""
               },
@@ -25,7 +25,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authfluentmind96ced389"
+              "userPoolId": "authfluentmind11855d94"
             }
           }
         }
@@ -35,7 +35,7 @@
     }
   },
   "auth": {
-    "fluentmind96ced389": {
+    "fluentmind11855d94": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {

@@ -6,39 +6,38 @@ enum Language {
 }
 
 type Word @model @auth(rules: [{allow: private, operations: [read]},{ allow: public }]) {
-  
-  text: String! @primaryKey(sortKeyFields: ["translation"])
-  translation: String!
+  text: String! @primaryKey
+  translation: String
   language: Language!
   sentences: [Sentence] @manyToMany(relationName: "SentenceWords",)
 }
 
 
 type Sentence @model @auth(rules: [{allow: private, operations: [read]},{ allow: public }]) {
-  text: String! @primaryKey(sortKeyFields: ["translation"])
-  translation: String!
+  text: String! @primaryKey
+  translation: String
   language: Language!
+  phrases:  [String]
+  meanings: [String]
   words: [Word] @manyToMany(relationName: "SentenceWords")
 
 }
 
 type UserWord @model @auth(rules: [{allow: owner},{allow: public}]) {
   id: String! @primaryKey
-  word: Word @hasOne(fields: ["wordText","wordTranslation"])
+  word: Word @hasOne(fields: ["wordText"])
   wordText: String
-  wordTranslation: String
   randId: ID
   owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
 
 type UserSentence @model @auth(rules: [{allow:owner},{allow: public}]) {
   id: String! @primaryKey
-  sentence: Sentence @hasOne(fields:["sentenceText","sentenceTranslation"])
+  sentence: Sentence @hasOne(fields:["sentenceText"])
   sentenceText: String
-  sentenceTranslation: String
   owner: String @auth(rules: [{ allow: owner, operations: [read, delete] }])
 }
 
 type Mutation {
-  generateSentence(language: Language) : [UserSentence]
+  generateSentence(language: Language) : [UserSentence] 
 }
