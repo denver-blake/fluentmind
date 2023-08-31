@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 function HomeStack() {
 	return (
-		<Stack.Navigator>
+		<Stack.Navigator screenOptions={{headerShown:false}}>
 			<Stack.Screen name="MainTab" component={BottomTab} />
 			<Stack.Screen name="PracticeStack" component={PracticeStack} />
 		</Stack.Navigator>

@@ -7,7 +7,7 @@ const Tab = createBottomTabNavigator();
 
 function BottomTab() {
 	return (
-		<Tab.Navigator>
+		<Tab.Navigator >
 			<Tab.Screen name="Home" component={HomeScreen} />
 			<Tab.Screen name="Vocab" component={VocabScreen} />
 			<Tab.Screen name="Profile" component={ProfileScreen} />
